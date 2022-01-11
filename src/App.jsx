@@ -8,10 +8,13 @@ import { Contact } from './components/Contact';
 import { Product } from './components/Product';
 import { Products } from './components/Users';
 import { UserDetails } from './components/UserDetails';
+import { Login } from './components/Login';
+import { PrivateRoute } from './components/PrivateRoute';
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <Login />
       <Routes>
         <Route path={"/"} element={<div>Home page</div>} >
         
@@ -22,8 +25,8 @@ function App() {
         <Route path={"/contact"} element= {<Contact />} />
         <Route path={"/contact"} element= {<Contact />} />
         <Route path={"/product/:id"} element={<Product />}/>
-        <Route path= {"/products"} element= {<Products />}/>
-        <Route path= {"/users/:userid"} element= {<UserDetails />}/>
+        <Route path= {"/products"} element= {<PrivateRoute> <Products /> </PrivateRoute>}/>
+        <Route path= {"/users/:userid"} element= {<PrivateRoute ><UserDetails /> </PrivateRoute>}/>
         <Route path={"*"} element={<h1>Page not found</h1>}/>
       </Routes>
       
